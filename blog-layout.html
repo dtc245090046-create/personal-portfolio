@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang=vi>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Layout Blog với CSS Grid</title>
+  <style>
+    /* ==========================================================================
+       1. RESET & PHONG CÁCH TỔNG THỂ
+       ========================================================================== */
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+    }
+
+    /* ==========================================================================
+       2. BỐ CỤC GRID CONTAINER (2 CỘT x 3 HÀNG)
+       ========================================================================== */
+    .grid-container {
+      display: grid;
+      /* Cột chính chiếm 2 phần (2fr), sidebar chiếm 1 phần (1fr) */
+      grid-template-columns: 2fr 1fr;
+      /* Hàng header và footer chiều cao tự động (auto), thân giữa chiếm hết không gian (1fr) */
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* ==========================================================================
+       3. ĐỊNH VỊ CÁC PHẦN TỬ TRÊN LƯỚI (GRID ITEMS)
+       ========================================================================== */
+    /* Định dạng chung cho các khu vực */
+    .header, .main, .sidebar, .footer {
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    /* HEADER: Trải dài từ vạch 1 đến vạch 3 (cả 2 cột) */
+    .header {
+      grid-column: 1 / 3;
+      background-color: #0284c7;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    /* MAIN CONTENT: Hàng giữa, Cột 1 */
+    .main {
+      grid-column: 1 / 2;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .main h2 {
+      color: #0369a1;
+      margin-top: 0;
+    }
+
+    .main p {
+      line-height: 1.7;
+    }
+
+    /* SIDEBAR: Hàng giữa, Cột 2 */
+    .sidebar {
+      grid-column: 2 / 3;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    .sidebar h2 {
+      color: #e11d48;
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    /* FOOTER: Trải dài cả 2 cột ở đáy trang */
+    .footer {
+      grid-column: 1 / 3;
+      background-color: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    .footer h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #f8fafc;
+    }
+  </style>
+</head>
+<body class=grid-container>
+
+  <header class=header>
+    <h2>HEADER - TRANG TIN TỨC CÔNG NGHỆ</h2>
+  </header>
+
+  <main class=main>
+    <h2>MAIN CONTENT (NỘI DUNG CHÍNH)</h2>
+    <p>Đây là khu vực chứa nội dung chính của bài viết blog. Với tỷ lệ phân bổ <strong>2fr</strong>, khu vực này chiếm trọn 2/3 bề ngang phần thân, mang lại không gian đọc thoải mái, dễ chịu cho người dùng.</p>
+    <p>CSS Grid giúp chúng ta kiểm soát chính xác vị trí hiển thị theo cả chiều ngang và chiều dọc một cách vô cùng khoa học và mạch lạc.</p>
+  </main>
+
+  <aside class=sidebar>
+    <h2>SIDEBAR (THANH BÊN)</h2>
+    <p>Khu vực thanh bên với tỷ lệ <strong>1fr</strong>, lý tưởng để bố trí danh mục bài viết phổ biến, thông tin tác giả, công cụ tìm kiếm hoặc các banner quảng cáo liên quan.</p>
+  </aside>
+
+  <footer class=footer>
+    <h2>FOOTER - THÔNG TIN LIÊN HỆ & BẢN QUYỀN</h2>
+    <p>&copy; 2026 Blog Cá Nhân. Xây dựng bằng CSS Grid Layout.</p>
+  </footer>
+
+</body>
+</html>
