@@ -1,3 +1,229 @@
-body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+﻿/* ==========================================================================
+   1. RESET & THIáº¾T Láº¬P Ná»€N Táº¢NG (MOBILE-FIRST)
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-#intro { background-color: #f0f7ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0284c7; }
+html {
+  font-size: 100%; /* 16px máº·c Ä‘á»‹nh */
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  line-height: 1.6;
+  background-color: #0f172a; /* Ná»n Slate 900 tá»‘i cao cáº¥p */
+  color: #f8fafc;
+}
+
+/* ==========================================================================
+   2. Bá» Cá»¤C MOBILE Máº¶C Äá»ŠNH (KHÃ”NG DÃ™NG MEDIA QUERY)
+   ========================================================================== */
+/* Bá»‘ cá»¥c trang 1 cá»™t dá»c thuáº§n tÃºy */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Header trÃªn Mobile */
+.header {
+  background-color: #1e293b;
+  padding: 1.5rem 1.25rem;
+  border-bottom: 1px solid #334155;
+  text-align: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #38bdf8;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* LÆ°á»›i ná»™i dung trÃªn Mobile: 1 Cá»˜T DUY NHáº¤T */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 cá»™t duy nháº¥t */
+  gap: 1.25rem;
+  padding: 1.25rem;
+  flex: 1; /* Äáº©y footer xuá»‘ng Ä‘Ã¡y */
+}
+
+/* Äá»‹nh dáº¡ng tháº» dá»± Ã¡n (.card) */
+.card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+}
+
+/* HÃ¬nh áº£nh Ä‘Ã¡p á»©ng */
+.card-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: #0369a1;
+  color: #e0f2fe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* Footer trÃªn Mobile */
+.footer {
+  background-color: #0b1120;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   3. LAYOUT TABLET (BREAKPOINT: MIN-WIDTH: 768PX)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .header {
+    padding: 2rem;
+  }
+
+  .logo {
+    font-size: 1.9rem;
+  }
+
+  /* Chuyá»ƒn thÃ nh LÆ°á»›i 2 cá»™t */
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  /* Tháº» tiÃªu Ä‘iá»ƒm chiáº¿m trá»n 2 cá»™t trÃªn Tablet */
+  .card-1 {
+    grid-column: span 2;
+    flex-direction: row; /* Bá»‘ cá»¥c ngang: áº¢nh bÃªn trÃ¡i, chá»¯ bÃªn pháº£i */
+  }
+
+  .card-1 .card-media {
+    width: 50%;
+  }
+
+  .card-1 .card-media img {
+    height: 100%;
+  }
+
+  .card-1 .card-info {
+    width: 50%;
+    padding: 2rem;
+  }
+}
+
+/* ==========================================================================
+   4. LAYOUT DESKTOP (BREAKPOINT: MIN-WIDTH: 1024PX)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tagline {
+    margin-top: 0;
+  }
+
+  /* KhÃ´i phá»¥c lÆ°á»›i 4 cá»™t Mosaic báº¥t Ä‘á»‘i xá»©ng */
+  .content-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+  }
+
+  /* Tháº» 1: Khá»‘i tiÃªu Ä‘iá»ƒm lá»›n 2 cá»™t x 2 hÃ ng */
+  .card-1 {
+    grid-column: span 2;
+    grid-row: span 2;
+    flex-direction: column;
+  }
+
+  .card-1 .card-media {
+    width: 100%;
+    height: 60%;
+  }
+
+  .card-1 .card-info {
+    width: 100%;
+    height: 40%;
+  }
+
+  /* Tháº» 4: Báº£n tin ngang chiáº¿m 2 cá»™t */
+  .card-4 {
+    grid-column: span 2;
+  }
+
+  /* Tháº» 5: PhÃ³ng sá»± Ä‘á»©ng chiáº¿m 2 hÃ ng */
+  .card-5 {
+    grid-row: span 2;
+  }
+
+  /* Tháº» 6: Khá»‘i tá»•ng káº¿t chiáº¿m 3 cá»™t */
+  .card-6 {
+    grid-column: span 3;
+  }
+}

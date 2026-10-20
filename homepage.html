@@ -1,175 +1,84 @@
 ﻿<!DOCTYPE html>
-<html lang=vi>
+<html lang="vi">
 <head>
-  <meta charset=UTF-8>
-  <meta name=viewport content=width=device-width, initial-scale=1.0>
-  <title>Trang Chủ Tờ Báo Online - Bố Cục CSS Grid Lồng Nhau</title>
-  <style>
-    /* ==========================================================================
-       1. RESET & PHONG CÁCH TỔNG THỂ
-       ========================================================================== */
-    html {
-      box-sizing: border-box;
-    }
-
-    *, *::before, *::after {
-      box-sizing: inherit;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0f172a; /* Nền tối hiện đại sang trọng */
-      color: #f8fafc;
-    }
-
-    /* ==========================================================================
-       2. BỐ CỤC TỔNG THỂ MACRO-LAYOUT (.page-container)
-       ========================================================================== */
-    .page-container {
-      display: grid;
-      /* 3 hàng: Header(auto) - Thân chính(1fr giãn hết cỡ) - Footer(auto) */
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh; /* Cao tối thiểu trọn vẹn màn hình */
-    }
-
-    /* ==========================================================================
-       3. HEADER VÀ FOOTER TRẢI DÀI TOÀN BỘ CHIỀU RỘNG
-       ========================================================================== */
-    .header {
-      background-color: #1e293b;
-      padding: 24px 30px;
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #38bdf8;
-      border-bottom: 2px solid #334155;
-    }
-
-    .footer {
-      background-color: #0b1120;
-      padding: 20px 30px;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
-    }
-
-    /* ==========================================================================
-       4. LƯỚI NỘI DUNG LỒNG NHAU MICRO-LAYOUT (.content-grid)
-       ========================================================================== */
-    .content-grid {
-      display: grid; /* Kỹ thuật Nested Grid */
-      grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
-      grid-auto-rows: 200px;                 /* Chiều cao cơ bản cho mỗi hàng */
-      gap: 16px;                             /* Khoảng cách giữa các khối tin */
-      padding: 24px 30px;
-      max-width: 1300px;
-      width: 100%;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-
-    /* ==========================================================================
-       5. ĐỊNH DẠNG CHUNG CỦA CÁC THẺ TIN / DỰ ÁN (.card)
-       ========================================================================== */
-    .card {
-      border-radius: 12px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
-    }
-
-    /* ==========================================================================
-       6. SẮP XẾP BẤT ĐỐI XỨNG CỦA CÁC THẺ TIN (SPANS)
-       ========================================================================== */
-    /* Thẻ 1: Tiêu điểm trang nhất (Featured) - Chiếm 2 cột x 2 hàng */
-    .card-1 {
-      grid-column: span 2;
-      grid-row: span 2;
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      font-size: 1.6rem;
-    }
-
-    /* Thẻ 2: Tin nhanh góc phải trên */
-    .card-2 {
-      background: linear-gradient(135deg, #e11d48, #be123c);
-    }
-
-    /* Thẻ 3: Chuyên đề công nghệ góc phải */
-    .card-3 {
-      background: linear-gradient(135deg, #059669, #047857);
-    }
-
-    /* Thẻ 4: Bản tin trải rộng 2 cột ở giữa */
-    .card-4 {
-      grid-column: span 2;
-      background: linear-gradient(135deg, #d97706, #b45309);
-    }
-
-    /* Thẻ 5: Cột dọc phóng sự dài 2 hàng */
-    .card-5 {
-      grid-row: span 2;
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
-    }
-
-    /* Thẻ 6: Khối tổng kết góc dưới */
-    .card-6 {
-      grid-column: span 3;
-      background: linear-gradient(135deg, #475569, #334155);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio CÃ¡ NhÃ¢n - Responsive Mobile-First</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class=page-container>
+<body class="page-container">
 
-  <header class=header>THE TECH CHRONICLE - TỜ BÁO CÔNG NGHỆ & THIẾT KẾ</header>
+  <!-- HEADER TRANG CHá»¦ -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">NAM DUONG</a>
+      <p class="tagline">Front-end Developer & UI/UX Designer</p>
+    </div>
+  </header>
 
-  <!-- LƯỚI NỘI DUNG LỒNG NHAU (NESTED GRID) -->
-  <main class=content-grid>
-    <div class=card card-1>
-      <span>TIÊU ĐIỂM TRANG NHẤT</span>
-      Dự án 1: Trí tuệ nhân tạo định hình tương lai thiết kế Web 2026
+  <!-- LÆ¯á»šI Ná»˜I DUNG Dá»° ÃN (CONTENT GRID) -->
+  <main class="content-grid">
+    
+    <!-- THá»¬ THÃCH: HÃŒNH áº¢NH ÄÃP á»¨NG Vá»šI THáºº <PICTURE> (ART DIRECTION) -->
+    <div class="card card-1 featured">
+      <picture class="card-media">
+        <!-- áº¢nh ngang tá»‰ lá»‡ rá»™ng cho mÃ n hÃ¬nh Desktop & Tablet -->
+        <source media="(min-width: 768px)" srcset="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80">
+        <!-- áº¢nh vuÃ´ng / dá»c tá»‘i Æ°u cho mÃ n hÃ¬nh Mobile -->
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&h=600&q=80" alt="Dá»± Ã¡n ná»n táº£ng quáº£n trá»‹ thÃ´ng minh">
+      </picture>
+      <div class="card-info">
+        <span class="badge">Dá»° ÃN TIÃŠU ÄIá»‚M</span>
+        <h3>Ná»n Táº£ng Quáº£n LÃ½ CÃ´ng TrÃ¬nh ÄÃ¡m MÃ¢y</h3>
+        <p>Há»‡ thá»‘ng Web App hiá»‡n Ä‘áº¡i tá»‘i Æ°u hÃ³a tiáº¿n Ä‘á»™ vÃ  chi phÃ­ cho doanh nghiá»‡p xÃ¢y dá»±ng.</p>
+      </div>
     </div>
-    <div class=card card-2>
-      <span>XU HƯỚNG</span>
-      Dự án 2: Phong cách Mosaic UI
+
+    <div class="card card-2">
+      <div class="card-info">
+        <span class="badge">E-COMMERCE</span>
+        <h3>á»¨ng Dá»¥ng Mua Sáº¯m Di Äá»™ng</h3>
+        <p>Giao diá»‡n thÆ°Æ¡ng máº¡i Ä‘iá»‡n tá»­ siÃªu tá»‘c vá»›i tráº£i nghiá»‡m cháº¡m vuá»‘t tá»± nhiÃªn.</p>
+      </div>
     </div>
-    <div class=card card-3>
-      <span>CÔNG NGHỆ</span>
-      Dự án 3: CSS Grid Level 2 & Subgrid
+
+    <div class="card card-3">
+      <div class="card-info">
+        <span class="badge">DASHBOARD</span>
+        <h3>Báº£ng Äiá»u Khiá»ƒn TÃ i ChÃ­nh</h3>
+        <p>PhÃ¢n tÃ­ch trá»±c quan hÃ³a dá»¯ liá»‡u thá»i gian thá»±c vá»›i biá»ƒu Ä‘á»“ tÆ°Æ¡ng tÃ¡c.</p>
+      </div>
     </div>
-    <div class=card card-4>
-      <span>PHÓNG SỰ</span>
-      Dự án 4: Hệ thống thiết kế Design Systems trong kỷ nguyên số
+
+    <div class="card card-4">
+      <div class="card-info">
+        <span class="badge">MEDIA</span>
+        <h3>Táº¡p ChÃ­ CÃ´ng Nghá»‡ Trá»±c Tuyáº¿n</h3>
+        <p>Thiáº¿t káº¿ dáº¡ng lÆ°á»›i báº¥t Ä‘á»‘i xá»©ng mang phong cÃ¡ch áº¥n pháº©m bÃ¡o chÃ­ hiá»‡n Ä‘áº¡i.</p>
+      </div>
     </div>
-    <div class=card card-5>
-      <span>GÓC NHÌN</span>
-      Dự án 5: Tối ưu trải nghiệm độc giả đa thiết bị
+
+    <div class="card card-5">
+      <div class="card-info">
+        <span class="badge">DESIGN SYSTEM</span>
+        <h3>Bá»™ ThÃ nh Pháº§n Giao Diá»‡n Chuáº©n</h3>
+        <p>ThÆ° viá»‡n UI Kit tÃ¡i sá»­ dá»¥ng tá»‘i Ä‘a hÃ³a tá»‘c Ä‘á»™ phÃ¡t triá»ƒn giao diá»‡n web.</p>
+      </div>
     </div>
-    <div class=card card-6>
-      <span>TỔNG KẾT TUẦN</span>
-      Dự án 6: Bản tin thị trường phát triển phần mềm toàn cầu
+
+    <div class="card card-6">
+      <div class="card-info">
+        <span class="badge">CREATIVE</span>
+        <h3>Triá»ƒn LÃ£m Nhiáº¿p áº¢nh TÆ°Æ¡ng TÃ¡c</h3>
+        <p>PhÃ²ng trÆ°ng bÃ y nghá»‡ thuáº­t sá»‘ vá»›i hiá»‡u á»©ng chuyá»ƒn Ä‘á»™ng mÆ°á»£t mÃ .</p>
+      </div>
     </div>
+
   </main>
 
-  <footer class=footer>
-    &copy; 2026 The Tech Chronicle. Kiến trúc giao diện bằng kỹ thuật CSS Grid lồng nhau (Nested Grid).
+  <!-- FOOTER CHÃ‚N TRANG -->
+  <footer class="footer">
+    <p>&copy; 2026 DÆ°Æ¡ng HoÃ i Nam. Thiáº¿t káº¿ chuáº©n Responsive Mobile-First vá»›i CSS Grid & Flexbox.</p>
   </footer>
 
 </body>
