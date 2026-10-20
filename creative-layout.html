@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang=vi>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Bố Cục Bất Đối Xứng Nghệ Thuật - CSS Grid Mosaic</title>
+  <style>
+    /* ==========================================================================
+       1. RESET & PHONG CÁCH TỔNG THỂ
+       ========================================================================== */
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 30px auto;
+      max-width: 1000px;
+      padding: 0 20px;
+      background-color: #1e1e24; /* Nền tối làm nổi bật các khối màu */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f8fafc;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    /* ==========================================================================
+       2. KHUNG LƯỚI GRID CONTAINER (4 CỘT)
+       ========================================================================== */
+    .grid-container {
+      display: grid;
+      /* 4 cột bằng nhau */
+      grid-template-columns: repeat(4, 1fr);
+      /* Chiều cao mặc định cho mỗi hàng là 130px */
+      grid-auto-rows: 130px;
+      gap: 12px;
+    }
+
+    /* ==========================================================================
+       3. ĐỊNH DẠNG CƠ BẢN CHO CÁC KHỐI ITEM
+       ========================================================================== */
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
+
+    /* ==========================================================================
+       4. QUY TẮC SẮP XẾP BẤT ĐỐI XỨNG VỚI TỪ KHÓA SPAN
+       ========================================================================== */
+    /* Item 1: Khối tiêu điểm - Chiếm 2 cột x 2 hàng */
+    .item-1 {
+      background-color: #e63946;
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    /* Item 2: Tự động chiếm 1 ô (1 cột x 1 hàng) */
+    .item-2 {
+      background-color: #1d3557;
+    }
+
+    /* Item 3: Chiếm 2 cột ngang */
+    .item-3 {
+      background-color: #2a9d8f;
+      grid-column: span 2;
+    }
+
+    /* Item 4: Chiếm 2 hàng dọc */
+    .item-4 {
+      background-color: #f4a261;
+      grid-row: span 2;
+    }
+
+    /* Item 5 & 6: Tự động lấp đầy các ô trống còn lại */
+    .item-5 {
+      background-color: #9d4edd;
+    }
+
+    .item-6 {
+      background-color: #457b9d;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bố Cục Bất Đối Xứng Nghệ Thuật (Mosaic Layout)</h1>
+
+  <div class= grid-container>
+    <div class=item item-1>Item 1 (2x2)</div>
+    <div class=item item-2>Item 2</div>
+    <div class=item item-3>Item 3 (Ngang 2 cột)</div>
+    <div class=item item-4>Item 4 (Dọc 2 hàng)</div>
+    <div class=item item-5>Item 5</div>
+    <div class=item item-6>Item 6</div>
+  </div>
+
+</body>
+</html>
