@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang=vi>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Danh Sách Thẻ Sản Phẩm Co Giãn Linh Hoạt - Flexbox Grid</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 1.8rem;
+      color: #0f172a;
+    }
+
+    /* Bố cục danh sách lưới sản phẩm co giãn linh hoạt */
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap; /* Cho phép các phần tử tự động xuống hàng */
+      gap: 20px;        /* Khoảng cách đều giữa các thẻ */
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Định dạng từng thẻ sản phẩm */
+    .product-card {
+      /* flex-grow: 1, flex-shrink: 1, flex-basis: calc(25% - 20px) */
+      flex: 1 1 calc(25% - 20px);
+      min-width: 220px; /* Ngưỡng chiều rộng tối thiểu trước khi rớt dòng */
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px); /* Nhấc nhẹ khi hover */
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: #334155;
+    }
+
+    .product-card .price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #e11d48; /* Màu đỏ cam nổi bật */
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bộ Sưu Tập Sản Phẩm Nổi Bật</h1>
+
+  <div class= product-grid>
+    <div class=product-card>
+      <h4>Bàn Phím Cơ Không Dây RGB</h4>
+      <p class=price>500.000 đ</p>
+    </div>
+    <div class=product-card>
+      <h4>Chuột Công Thái Học Pro</h4>
+      <p class=price>750.000 đ</p>
+    </div>
+    <div class=product-card>
+      <h4>Tai Nghe Bluetooth Chống Ồn</h4>
+      <p class=price>1.200.000 đ</p>
+    </div>
+    <div class=product-card>
+      <h4>Lót Chuột Gaming Khổ Lớn</h4>
+      <p class=price>320.000 đ</p>
+    </div>
+  </div>
+
+</body>
+</html>
