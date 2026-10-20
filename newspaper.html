@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang=vi>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Layout Trang Báo Đáp Ứng - Responsive Newspaper Layout</title>
+  <style>
+    /* ==========================================================================
+       1. RESET & PHONG CÁCH TỔNG THỂ
+       ========================================================================== */
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    /* Định dạng chung cho các khối để dễ quan sát */
+    .page-container > * {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       2. BỐ CỤC CHO MÀN HÌNH LỚN (DESKTOP LAYOUT - 4 CỘT)
+       ========================================================================== */
+    .page-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* Lưới 4 cột */
+      gap: 16px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header và Footer chiếm trọn 4 cột */
+    .header, .footer {
+      grid-column: 1 / -1;
+      background-color: #1e293b;
+      color: #ffffff;
+      font-size: 1.4rem;
+    }
+
+    /* Bài viết chính: Chiếm 3 cột đầu tiên */
+    .main-article {
+      grid-column: 1 / 4;
+      min-height: 350px;
+      background-color: #0284c7;
+      color: #ffffff;
+      font-size: 1.6rem;
+    }
+
+    /* Các bài viết phụ: Chiếm cột số 4 bên phải */
+    .side-article-1 {
+      grid-column: 4 / 5;
+      background-color: #f1f5f9;
+      color: #0369a1;
+      font-size: 1.1rem;
+    }
+
+    .side-article-2 {
+      grid-column: 4 / 5;
+      background-color: #f8fafc;
+      color: #e11d48;
+      font-size: 1.1rem;
+    }
+
+    /* ==========================================================================
+       3.  ĐÁP ỨNG HÓA CHO MÀN HÌNH NHỎ (MOBILE BREAKPOINT <= 800PX)
+       ========================================================================== */
+    @media (max-width: 800px) {
+      .page-container {
+        /* Chuyển toàn bộ bố cục sang 1 cột duy nhất */
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 12px;
+      }
+
+      /* Hủy bỏ chỉ định cột tuyệt đối, cho phép các phần tử tự động xếp chồng */
+      .header,
+      .footer,
+      .main-article,
+      .side-article-1,
+      .side-article-2 {
+        grid-column: auto;
+      }
+
+      .main-article {
+        min-height: 220px; /* Điều chỉnh chiều cao phù hợp với màn hình di động */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- KHUNG TRANG BÁO ĐÁP ỨNG (RESPONSIVE CONTAINER) -->
+  <div class=page-container>
+    <header class=header>HEADER - NHẬT BÁO CÔNG NGHỆ & ĐỜI SỐNG</header>
+    <article class=main-article>BÀI VIẾT CHÍNH (TIÊU ĐIỂM TRANG NHẤT)</article>
+    <article class=side-article-1>Bài viết phụ 1: Xu hướng AI 2026</article>
+    <article class=side-article-2>Bài viết phụ 2: Thiết kế Mobile-First</article>
+    <footer class=footer>FOOTER - BẢN QUYỀN & THÔNG TIN LIÊN HỆ</footer>
+  </div>
+
+</body>
+</html>
