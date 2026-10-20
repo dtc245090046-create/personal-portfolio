@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang=vi>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Thư Viện Ảnh Đáp Ứng - Responsive Photo Gallery</title>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+    body {
+      margin: 0;
+      padding: 30px 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+    header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      flex: 1 1 300px;
+      max-width: 420px;
+      height: 250px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background-color: #1e293b;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(56, 189, 248, 0.25);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.08);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Triển Lãm Nhiếp Ảnh Du Lịch & Thiên Nhiên</h1>
+    <p>Khám phá vẻ đẹp kỳ vĩ của thiên nhiên qua những khung hình được ghi lại từ khắp nơi trên thế giới.</p>
+  </header>
+  <div class=gallery-container>
+    <div class=gallery-item><img src=https://picsum.photos/id/10/600/400 alt=Thiên nhiên 1></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/16/600/400 alt=Thiên nhiên 2></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/28/600/400 alt=Thiên nhiên 3></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/29/600/400 alt=Thiên nhiên 4></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/37/600/400 alt=Thiên nhiên 5></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/42/600/400 alt=Thiên nhiên 6></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/49/600/400 alt=Thiên nhiên 7></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/54/600/400 alt=Thiên nhiên 8></div>
+    <div class=gallery-item><img src=https://picsum.photos/id/65/600/400 alt=Thiên nhiên 9></div>
+  </div>
+</body>
+</html>
